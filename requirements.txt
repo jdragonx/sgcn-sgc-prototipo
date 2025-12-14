@@ -1,0 +1,14 @@
+# Dependencias del proyecto SGCN-SGC Prototype
+# Generado automáticamente por uv
+
+fastapi==0.118.0
+uvicorn==0.37.0
+sqlalchemy==2.0.43
+pydantic==2.12.0
+python-multipart==0.0.20
+jinja2==3.1.6
+python-jose[cryptography]==3.5.0
+passlib[bcrypt]==1.7.4
+python-dotenv==1.1.1
+email-validator==2.3.0
+

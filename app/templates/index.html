@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGCN-SGC - Sistema Integrado de Gestión de Calidad y Continuidad del Negocio</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <div class="logo-icon">🏢</div>
+                    <span>SGCN-SGC</span>
+                </div>
+                <h1 class="login-title">Bienvenido</h1>
+                <p class="login-subtitle">Sistema Integrado de Gestión de Calidad y Continuidad del Negocio</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username" class="form-label">Usuario</label>
+                    <input type="text" id="username" name="username" class="form-input" required 
+                           placeholder="Ingrese su usuario" value="admin">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" id="password" name="password" class="form-input" required 
+                           placeholder="Ingrese su contraseña" value="admin">
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-full">
+                    Iniciar Sesión
+                </button>
+            </form>
+            
+            <div class="mt-4 text-center">
+                <p class="text-sm text-gray-600">
+                    <strong>Usuarios de prueba:</strong><br>
+                    admin / admin (Administrador)<br>
+                    auditor1 / auditor (Auditor)<br>
+                    gestor1 / gestor (Gestor)<br>
+                    operador1 / operador (Operador)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="appPage" class="hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <div class="logo-icon">🏢</div>
+                        <span>SGCN-SGC</span>
+                    </div>
+                    
+                    <div class="user-menu">
+                        <div id="userInfo" class="flex items-center gap-2">
+                            <!-- User info will be populated by JavaScript -->
+                        </div>
+                        <button id="logoutBtn" class="btn btn-secondary btn-sm">
+                            Cerrar Sesión
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" data-module="dashboard">
+                            📊 Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-module="documents">
+                            📄 Documentos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-module="incidents">
+                            🚨 Incidentes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-module="non-conformities">
+                            ⚠️ No Conformidades
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-module="audits">
+                            🔍 Auditorías
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-module="kpis">
+                            📈 KPIs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-module="business-continuity">
+                            🔄 Continuidad
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+                <!-- Dashboard Content -->
+                <div id="dashboardContent">
+                    <div class="mb-4">
+                        <h1 class="text-3xl font-bold text-gray-800">Dashboard Ejecutivo</h1>
+                        <p class="text-gray-600">Resumen general del sistema SGCN-SGC</p>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div id="statsContainer">
+                        <!-- Stats will be populated by JavaScript -->
+                    </div>
+
+                    <!-- Recent Activities -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Actividades Recientes</h2>
+                            </div>
+                            <div class="card-body">
+                                <div id="activitiesContainer">
+                                    <!-- Activities will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Acceso Rápido</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <button class="btn btn-primary" data-module="documents">
+                                        📄 Nuevo Documento
+                                    </button>
+                                    <button class="btn btn-warning" data-module="incidents">
+                                        🚨 Reportar Incidente
+                                    </button>
+                                    <button class="btn btn-danger" data-module="non-conformities">
+                                        ⚠️ No Conformidad
+                                    </button>
+                                    <button class="btn btn-info" data-module="audits">
+                                        🔍 Nueva Auditoría
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Status -->
+                    <div class="card mt-6">
+                        <div class="card-header">
+                            <h2 class="card-title">Estado del Sistema</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="text-center p-4 bg-green-50 rounded-lg">
+                                    <div class="text-2xl font-bold text-green-600">99.9%</div>
+                                    <div class="text-sm text-green-600">Disponibilidad</div>
+                                </div>
+                                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                                    <div class="text-2xl font-bold text-blue-600">2.3s</div>
+                                    <div class="text-sm text-blue-600">Tiempo de Respuesta</div>
+                                </div>
+                                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                                    <div class="text-2xl font-bold text-purple-600">24/7</div>
+                                    <div class="text-sm text-purple-600">Monitoreo</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module Content -->
+                <div id="mainContent" class="hidden">
+                    <!-- Module content will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/demo.js"></script>
+</body>
+</html>

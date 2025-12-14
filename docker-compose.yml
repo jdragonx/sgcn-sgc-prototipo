@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  sgcn-sgc:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=your-secret-key-change-in-production
+      - DATABASE_URL=sqlite:///./sgcn_sgc.db
+    volumes:
+      - ./uploads:/app/uploads
+      - ./sgcn_sgc.db:/app/sgcn_sgc.db
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+  # Servicio opcional para base de datos PostgreSQL en producción
+  # postgres:
+  #   image: postgres:15
+  #   environment:
+  #     POSTGRES_DB: sgcn_sgc
+  #     POSTGRES_USER: sgcn_user
+  #     POSTGRES_PASSWORD: sgcn_password
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+
+# volumes:
+#   postgres_data:
+
